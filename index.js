@@ -5,9 +5,9 @@ const cloudinary = require('cloudinary').v2
 const app = express();
 
 cloudinary.config({
-    cloud_name: "dxakjslun",
-    api_key: "376486964436347",
-    api_secret: "F25HIWbHt_WwxV1PcUtbA4-CFOM"
+    cloud_name: "",
+    api_key: "",
+    api_secret: ""
 })
 
 app.set("view engine", "ejs");
@@ -26,8 +26,8 @@ app.get('/myget', (req, res) => {
     res.send(req.body);
 });
 app.post('/mypost',async (req, res) => {
-    console.log(req.body);
-    console.log(req.files);
+    // console.log(req.body);
+    // console.log(req.files);
 
     const filesUplode = []
 
@@ -51,8 +51,9 @@ app.post('/mypost',async (req, res) => {
         })
         results ? filesUplode.push(results) : ""
     }
-    
-    
+
+    console.log(filesUplode)
+
     res.send({
         firstname: req.body.firstname, 
         lastname: req.body.lastname,
